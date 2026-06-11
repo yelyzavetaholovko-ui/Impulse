@@ -16,7 +16,11 @@ graph LR
     
     UC01 -.->|include| UC_Validate[Валідувати вхідні дані]
     UC02 -.->|include| UC_Validate
+```
 
+# Діаграма класів (Class Diagram)
+
+```mermaid
 classDiagram
     class User {
         +int userId
@@ -37,7 +41,11 @@ classDiagram
     }
 
     User "1" -- "1" Goal : has
+```
 
+# Діаграма послідовності
+
+```mermaid
 sequenceDiagram
     actor U as Користувач
     participant UI as Інтерфейс (Профіль)
@@ -54,3 +62,5 @@ sequenceDiagram
         UI-->>U: Повідомлення: "Помилка! Перевірте введені дані"
     end
     deactivate Usr
+
+```
