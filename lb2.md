@@ -11,19 +11,17 @@
 *Інтеграція з загальною системою планування харчування.*
 
 ```mermaid
-useCaseDiagram
-    actor User as "Користувач"
+graph LR
+    User((Користувач)) --- UC01[Ввести персональні дані FR-01]
+    User((Користувач)) --- UC02[Обрати ціль FR-01]
     
-    rectangle "Система планування харчування (Модуль профілю)" {
-        usecase UC01 as "Ввести персональні дані (FR-01)"
-        usecase UC02 as "Обрати ціль (FR-01)"
-        usecase UC_Validate as "Валідувати вхідні дані"
-        
-        User --> UC01
-        User --> UC02
-        UC01 ..> UC_Validate : <<include>>
-        UC02 ..> UC_Validate : <<include>>
-    }
+    UC01 -.->|include| UC_Validate[Валідувати вхідні дані]
+    UC02 -.->|include| UC_Validate
+    
+    style User fill:#fff,stroke:#333,stroke-width:2px
+    style UC01 fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style UC02 fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style UC_Validate fill:#f9f9f9,stroke:#333,stroke-width:1px
 
 classDiagram
     class User {
